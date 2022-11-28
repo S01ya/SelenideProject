@@ -76,6 +76,23 @@
         <artifactId>commons-lang3</artifactId>
         <version>3.12.0</version>
     </dependency>
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>4.4</version>
+    </dependency>
+    <!--REST Assured-->
+    <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>4.4.0</version>
+    </dependency>
+    <!--Jackson-annotations-->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>2.13.2</version>
+    </dependency>
     <!--Logs-->
     <dependency>
         <groupId>org.apache.logging.log4j</groupId>

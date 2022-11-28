@@ -1,13 +1,7 @@
 package com.it_academy.onliner.pageobject;
-
-import com.codeborne.selenide.ElementsCollection;
 import com.it_academy.onliner.framework.BasePage;
-import org.openqa.selenium.By;
-
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
