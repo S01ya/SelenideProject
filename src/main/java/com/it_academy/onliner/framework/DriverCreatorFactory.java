@@ -9,8 +9,8 @@ public final class DriverCreatorFactory {
         switch (driverType) {
             case "chrome":
                 return new ChromeDriverCreator();
-            case "firefox":
-                return null;
+            case "opera":
+                return new OperaDriverCreator();
             default:
                 return new ChromeDriverCreator();
         }
