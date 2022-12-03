@@ -68,6 +68,14 @@
            </plugins>
        </build>
 
+<profiles>
+    <profile>
+        <id>ParallelTestingSuite</id>
+        <properties>
+            <suite.xml.file>ParallelTestingSuite.xml</suite.xml.file>
+        </properties>
+    </profile>
+</profiles>
 
        <dependencies>
            <dependency>
