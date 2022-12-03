@@ -10,19 +10,19 @@ import static java.time.Duration.ofSeconds;
 
 public class OnlinerHeader extends BasePage {
 
+    private static final String ONLINER_URL = "https://www.onliner.by/";
+    private static final String MAIN_NAVIGATION_LINK_XPATH_PATTERN =
+            "//*[contains(@class, 'main-navigation__text') and contains(text(), '%s')]";
+
     public OnlinerHeader navigateToOnliner() {
         open(ONLINER_URL);
         return this;
     }
-    private static final String ONLINER_URL = "https://www.onliner.by/";
-    private static final String MAIN_NAVIGATION_LINK_XPATH_PATTERN =
-            "//*[contains(@class, 'main-navigation__text') and contains(text(), '%s')]";
 
     public void clickOnMainNavigationLink(String link) {
         $x(format(MAIN_NAVIGATION_LINK_XPATH_PATTERN, link))
                 .shouldBe(visible, ofSeconds(10))
                 .click();
-
     }
 
     public CatalogPage clickOnCatalog() {

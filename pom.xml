@@ -18,9 +18,9 @@
     <aspectj.version>1.9.8</aspectj.version>
     <allure.version>2.13.6</allure.version>
     <!--Drivers-->
-    <gecko.driver.path>${project.basedir}/src/test/resources/drivers/geckodriver.exe</gecko.driver.path>
-    <chrome.driver.path>${project.basedir}/src/test/resources/drivers/chromedriver.exe</chrome.driver.path>
-    <opera.driver.path>${project.basedir}/src/test/resources/drivers/operadriver.exe</opera.driver.path>
+    <!-- <gecko.driver.path>${project.basedir}/src/test/resources/drivers/geckodriver.exe</gecko.driver.path>  -->
+     <chrome.driver.path>${project.basedir}/src/test/resources/drivers/chromedriver.exe</chrome.driver.path>
+     <opera.driver.path>${project.basedir}/src/test/resources/drivers/operadriver.exe</opera.driver.path>
 </properties>
 
 <build>
@@ -31,66 +31,66 @@
             <version>3.0.0-M1</version>
             <configuration>
                 <systemPropertyVariables>
-                     <webdriver.gecko.driver>${gecko.driver.path}</webdriver.gecko.driver>
+                    <!--   <webdriver.gecko.driver>${gecko.driver.path}</webdriver.gecko.driver>-->
                     <webdriver.chrome.driver>${chrome.driver.path}</webdriver.chrome.driver>
                     <webdriver.opera.driver>${opera.driver.path}</webdriver.opera.driver>
-                   </systemPropertyVariables>
-                   <argLine>
-                       -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                   </argLine>
-               </configuration>
-               <dependencies>
-                   <dependency>
-                       <groupId>org.aspectj</groupId>
-                       <artifactId>aspectjweaver</artifactId>
-                       <version>${aspectj.version}</version>
-                   </dependency>
-               </dependencies>
-           </plugin>
-           <plugin>
-               <groupId>io.qameta.allure</groupId>
-               <artifactId>allure-maven</artifactId>
-               <version>2.10.0</version>
-               <configuration>
-                   <reportVersion>${allure.version}</reportVersion>
-               </configuration>
-           </plugin>
-           <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-compiler-plugin</artifactId>
-               <version>3.8.1</version>
-               <configuration>
-                   <source>${maven.compiler.source}</source>
-                   <target>${maven.compiler.target}</target>
-                   <encoding>${project.build.sourceEncoding}</encoding>
-               </configuration>
-           </plugin>
-       </plugins>
-   </build>
+                </systemPropertyVariables>
+                       <argLine>
+                           -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                       </argLine>
+                   </configuration>
+                   <dependencies>
+                       <dependency>
+                           <groupId>org.aspectj</groupId>
+                           <artifactId>aspectjweaver</artifactId>
+                           <version>${aspectj.version}</version>
+                       </dependency>
+                   </dependencies>
+               </plugin>
+               <plugin>
+                   <groupId>io.qameta.allure</groupId>
+                   <artifactId>allure-maven</artifactId>
+                   <version>2.10.0</version>
+                   <configuration>
+                       <reportVersion>${allure.version}</reportVersion>
+                   </configuration>
+               </plugin>
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-compiler-plugin</artifactId>
+                   <version>3.8.1</version>
+                   <configuration>
+                       <source>${maven.compiler.source}</source>
+                       <target>${maven.compiler.target}</target>
+                       <encoding>${project.build.sourceEncoding}</encoding>
+                   </configuration>
+               </plugin>
+           </plugins>
+       </build>
 
 
-   <dependencies>
-       <dependency>
-           <groupId>org.seleniumhq.selenium</groupId>
-           <artifactId>selenium-java</artifactId>
-           <version>${selenium.version}</version>
-       </dependency>
-       <dependency>
-           <groupId>org.seleniumhq.selenium</groupId>
-           <artifactId>selenium-api</artifactId>
-           <version>${selenium.version}</version>
-       </dependency>
-       <dependency>
-           <groupId>org.apache.commons</groupId>
-           <artifactId>commons-lang3</artifactId>
-           <version>3.12.0</version>
-       </dependency>
-       <dependency>
-           <groupId>org.apache.commons</groupId>
-           <artifactId>commons-collections4</artifactId>
-           <version>4.4</version>
-       </dependency>
-       <!--REST Assured-->
+       <dependencies>
+           <dependency>
+               <groupId>org.seleniumhq.selenium</groupId>
+               <artifactId>selenium-java</artifactId>
+               <version>${selenium.version}</version>
+           </dependency>
+           <dependency>
+               <groupId>org.seleniumhq.selenium</groupId>
+               <artifactId>selenium-api</artifactId>
+               <version>${selenium.version}</version>
+           </dependency>
+           <dependency>
+               <groupId>org.apache.commons</groupId>
+               <artifactId>commons-lang3</artifactId>
+               <version>3.12.0</version>
+           </dependency>
+           <dependency>
+               <groupId>org.apache.commons</groupId>
+               <artifactId>commons-collections4</artifactId>
+               <version>4.4</version>
+           </dependency>
+           <!--REST Assured-->
     <dependency>
         <groupId>io.rest-assured</groupId>
         <artifactId>rest-assured</artifactId>
@@ -156,7 +156,11 @@
         <artifactId>aspectjweaver</artifactId>
         <version>${aspectj.version}</version>
     </dependency>
-
-</dependencies>
-
+           <dependency>
+               <groupId>org.jetbrains</groupId>
+               <artifactId>annotations</artifactId>
+               <version>RELEASE</version>
+               <scope>compile</scope>
+           </dependency>
+       </dependencies>
 </project>
