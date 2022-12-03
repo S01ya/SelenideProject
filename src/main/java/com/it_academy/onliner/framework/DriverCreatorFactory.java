@@ -22,6 +22,8 @@ public class DriverCreatorFactory {
                 return new OperaDriverCreator();
             case "firefox":
                 return new FirefoxDriverCreator();
+            case "edge":
+                return new EdgeDriverCreator();
             case "remote":
                 return new RomoteWebDriverCreator();
             default:
@@ -50,6 +52,8 @@ public class DriverCreatorFactory {
             LOG.info("Default driverTYpe system property has been set to '{}'",
                     System.getProperty(DRIVER_TYPE_SYSTEM_PROPERTY));
         }
+
+
     }
 }
 

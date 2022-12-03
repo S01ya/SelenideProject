@@ -11,14 +11,16 @@ import org.testng.annotations.Parameters;
 
 //@Listeners(AllureListener.class)
 public abstract class BaseTest {
-DriverCreatorFactory driverCreatorFactory = new DriverCreatorFactory();
+    DriverCreatorFactory driverCreatorFactory = new DriverCreatorFactory();
     protected static final Logger LOG = LoggerFactory.getLogger(ComputerAndCategoryTest.class);
+
     @BeforeClass
     @Parameters(value = {"driverType"})
-    public void  setup(@Optional String driverType){
+    public void setup(@Optional String driverType) {
         LOG.info("driverType: {}, threadId:{}", driverType, Thread.currentThread().getId());
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().screenshots(true).savePageSource(true));
         driverCreatorFactory.initDriver(driverType);
+        System.out.println(this);
     }
 }
