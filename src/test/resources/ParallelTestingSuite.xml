@@ -3,16 +3,16 @@
     <test name="Parallel Tests on chrome">
         <parameter name="driverType" value="chrome"/>
         <classes>
-          <!--  <class name="com.it_academy.onliner.ComputerAndCategoryTest"/> -->
+            <class name="com.it_academy.onliner.ComputerAndCategoryTest"/>
             <class name="com.it_academy.onliner.NavigationTest"/>
-          <!--  <class name="com.it_academy.onliner.ProductsFromCategoryTest"/> -->
+            <class name="com.it_academy.onliner.ProductsFromCategoryTest"/>
         </classes>
     </test>
     <test name="Parallel Tests on opera">
         <parameter name="driverType" value="opera"/>
         <classes>
-          <!--  <class name="com.it_academy.onliner.ComputerAndCategoryTest"/> -->
-           <!-- <class name="com.it_academy.onliner.NavigationTest"/> -->
+            <class name="com.it_academy.onliner.ComputerAndCategoryTest"/>
+            <class name="com.it_academy.onliner.NavigationTest"/>
             <class name="com.it_academy.onliner.ProductsFromCategoryTest"/>
         </classes>
     </test>

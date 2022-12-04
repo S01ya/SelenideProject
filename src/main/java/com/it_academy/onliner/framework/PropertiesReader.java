@@ -1,4 +1,5 @@
 package com.it_academy.onliner.framework;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;

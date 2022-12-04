@@ -3,6 +3,7 @@ package com.it_academy.onliner.rest_api.service;
 import com.google.common.collect.ImmutableMap;
 import com.it_academy.onliner.rest_api.endpoints.OnlinerEndpoints;
 import com.it_academy.onliner.rest_api.model.Product;
+import com.it_academy.onliner.rest_api.model.Roll;
 import com.it_academy.onliner.rest_api.utils.GetRequestUtils;
 import com.it_academy.onliner.rest_api.utils.ResponseBodyUtils;
 import io.restassured.response.ResponseBody;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public class ProductsService {
     private static final String PRODUCTS_JSON_PATH = "products";
-    private static final String FILTER_ROLL_JSON_PATH = "products.name_prefix";
+    private static final String FILTER_ROLL_JSON_PATH = "products";
 
     public List<Product> getProductItems() {
         ResponseBody responseBody = GetRequestUtils.makeRequestAndGetResponseBody(
@@ -23,15 +24,16 @@ public class ProductsService {
                 responseBody, PRODUCTS_JSON_PATH, Product.class);
     }
 
-    public List<String> getRollNamePrefixItems() {
+    public List<Roll> getRollNamePrefixItems() {
         ResponseBody responseBody = GetRequestUtils.makeRequestAndGetResponseBody(
                 OnlinerEndpoints.getCatalogSearchSushiveslaRollEndPoint(),
                 configureHeaders(), null);
-        return Collections.singletonList(ResponseBodyUtils.getStringJsonValue(
-                responseBody, FILTER_ROLL_JSON_PATH));
+        return ResponseBodyUtils.getObjectsByJsonPath(
+                responseBody, FILTER_ROLL_JSON_PATH, Roll.class);
     }
+
     public static Map<String, Object> configureHeaders() {
         return ImmutableMap.of("Host", "catalog.onliner.by",
-        "Connection", "keep-alive");
+                "Connection", "keep-alive");
     }
 }

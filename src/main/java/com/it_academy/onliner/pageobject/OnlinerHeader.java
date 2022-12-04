@@ -1,6 +1,7 @@
 package com.it_academy.onliner.pageobject;
 
 import com.it_academy.onliner.framework.BasePage;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
@@ -14,6 +15,7 @@ public class OnlinerHeader extends BasePage {
     private static final String MAIN_NAVIGATION_LINK_XPATH_PATTERN =
             "//*[contains(@class, 'main-navigation__text') and contains(text(), '%s')]";
 
+    @Step("Navigate to Onliner page")
     public OnlinerHeader navigateToOnliner() {
         open(ONLINER_URL);
         return this;
@@ -24,7 +26,7 @@ public class OnlinerHeader extends BasePage {
                 .shouldBe(visible, ofSeconds(10))
                 .click();
     }
-
+    @Step("Click on catalog")
     public CatalogPage clickOnCatalog() {
         clickOnMainNavigationLink("Каталог");
         return new CatalogPage();

@@ -14,7 +14,7 @@ public class DriverCreatorFactory {
     private static  final String DRIVER_TYPE_SYSTEM_PROPERTY = "driverType";
 
     @Nonnull
-    public static synchronized WebDriverCreator createDiverByName(@Nonnull String driverType) {
+    public static WebDriverCreator createDiverByName(@Nonnull String driverType) {
         switch (driverType) {
             case "chrome":
                 return new ChromeDriverCreator();
@@ -31,14 +31,15 @@ public class DriverCreatorFactory {
         }
     }
 
-    public synchronized void  initDriver(String driverType) {
+    public static synchronized void  initDriver(String driverType) {
         setDriverTypeSystemProperty(driverType);
+        LOG.info("driverType is {}", driverType);
         Configuration.browser = DriverProvider.class.getName();
         Configuration.pageLoadTimeout = 200000;
         open();
     }
 
-    private synchronized void setDriverTypeSystemProperty(String driverType) {
+    private static synchronized void  setDriverTypeSystemProperty(String driverType) {
         if (driverType == null) {
             setDefaultDriverTypeSystemPropertyIfItWasNoSet();
         } else {
@@ -46,7 +47,7 @@ public class DriverCreatorFactory {
         }
     }
 
-    private void setDefaultDriverTypeSystemPropertyIfItWasNoSet() {
+    private static void setDefaultDriverTypeSystemPropertyIfItWasNoSet() {
         if (System.getProperty(DRIVER_TYPE_SYSTEM_PROPERTY) == null) {
             System.setProperty(DRIVER_TYPE_SYSTEM_PROPERTY, "chrome");
             LOG.info("Default driverTYpe system property has been set to '{}'",
